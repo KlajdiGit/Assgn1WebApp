@@ -10,6 +10,10 @@ public class BoxGuess {
         this.prizeText = PrizeTextValue();
     }
 
+
+
+
+
     public void setPrizeText(String prizeText) {
         this.prizeText = prizeText;
     }

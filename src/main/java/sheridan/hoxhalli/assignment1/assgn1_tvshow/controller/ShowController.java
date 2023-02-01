@@ -15,10 +15,10 @@ public class ShowController {
 
     private final Logger log = LoggerFactory.getLogger(ShowController.class);
 
-    private final TVshowService showService;
+    private final TVshowService tvShowService;
 
     public ShowController(TVshowService tvShowService){
-        this.showService = tvShowService;
+        this.tvShowService = tvShowService;
     }
 
     @GetMapping(value = {"/", "playTemplate"})
@@ -32,7 +32,7 @@ public class ShowController {
             @RequestParam BoxGuess prize
               ){
         log.trace("play() is called");
-        prize.setValue(showService.putValues());
+        prize = tvShowService.putValues();
         log.debug("Value: " + prize);
         return new ModelAndView("Output", "boxValue",prize);
     }
