@@ -6,11 +6,14 @@ import sheridan.hoxhalli.assignment1.assgn1_tvshow.model.BoxValues;
 
 import java.util.Random;
 
+import static sheridan.hoxhalli.assignment1.assgn1_tvshow.model.BoxValues.NOPRIZE;
+
 @Service
 public class TVshowService {
 
     private final Random random;
     //private static final int NUM_BOXES = 4;
+
     public TVshowService(Random rand) {
         this.random = rand;
 
@@ -22,21 +25,21 @@ public class TVshowService {
     }
 
     public BoxGuess getBox(BoxValues val){
-        return new BoxGuess(val);
+        return new BoxGuess(putValues());
     }
 
-    public BoxGuess putValues(){
+    public BoxValues putValues(){
 
         int pick = this.random.nextInt(3);
 
         if(pick == 0){
-            return getBox(BoxValues.NOPRIZE);
+            return BoxValues.NOPRIZE;
         }
         else if (pick == 1){
-            return getBox(BoxValues.SPORTCAR);
+            return BoxValues.SPORTCAR;
         }
         else{
-            return getBox(BoxValues.MONEY);
+            return BoxValues.MONEY;
 
         }
     }

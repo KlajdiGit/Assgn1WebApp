@@ -11,18 +11,18 @@
 <main>
     <h2>Prize!!!</h2>
     <p>
-        <label>Your won:</label>&nbsp;<span th:text="${prize.prizeText}">Money</span>
+        <label>Your won:</label>&nbsp;<span th:text="${prize.getPrizeText()}">Money</span>
     </p>
 
     <div class="choice-container">
         <img src="../static/images/noprize.png" height="100" width="100" alt="No Prize"
-             th:src="@{|images/${prize.value}.png|}" th:alt="${prize.value}">
+             th:src="@{|images/${prize.getValue()}.png|}" th:alt="${prize.value}">
         <img src="../static/images/money.png" height="100" width="100"  alt="Money"
-             th:src="@{|images/${prize.value}.png|}" th:alt="${prize.value}">
+             th:src="@{|images/${prize.getValue()}.png|}" th:alt="${prize.value}">
         <img src="../static/images/noprize.png" height="100" width="100" alt="No Prize"
-             th:src="@{|images/${prize.value}.png|}" th:alt="${prize.value}">
+             th:src="@{|images/${prize.getValue()}.png|}" th:alt="${prize.value}">
         <img src="../static/images/sportcar.png" height="100" width="100"  alt="Sportscar"
-             th:src="@{|images/${prize.value}.png|}" th:alt="${prize.value}">
+             th:src="@{|images/${prize.getValue()}.png|}" th:alt="${prize.value}">
     </div>
 
 </main>

@@ -29,12 +29,13 @@ public class ShowController {
 
     @GetMapping("/play")
     public ModelAndView play(
-            @RequestParam BoxGuess prize
+          //  @RequestParam BoxValues prize
               ){
         log.trace("play() is called");
-        prize = tvShowService.putValues();
-        log.debug("Value: " + prize);
-        return new ModelAndView("Output", "boxValue",prize);
+        BoxValues prize = tvShowService.putValues();
+        BoxGuess boxGuess = new BoxGuess(prize);
+        log.debug("Value: " + boxGuess.getPrizeText());
+        return new ModelAndView("ResultTemplate", "prize",boxGuess);
     }
 
 }

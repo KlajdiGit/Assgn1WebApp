@@ -7,7 +7,7 @@ public class BoxGuess {
 
     public BoxGuess(BoxValues value) {
         this.value = value;
-        this.prizeText = PrizeTextValue();
+        this.prizeText = prizeTextValue();
     }
 
 
@@ -22,7 +22,7 @@ public class BoxGuess {
         this.value = value;
     }
 
-    private String PrizeTextValue(){
+    private String prizeTextValue(){
        switch(this.value){
 
            case NOPRIZE:
