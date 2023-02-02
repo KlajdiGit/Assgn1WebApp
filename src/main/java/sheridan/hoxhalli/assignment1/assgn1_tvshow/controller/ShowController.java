@@ -10,6 +10,9 @@ import sheridan.hoxhalli.assignment1.assgn1_tvshow.model.BoxGuess;
 import sheridan.hoxhalli.assignment1.assgn1_tvshow.model.BoxValues;
 import sheridan.hoxhalli.assignment1.assgn1_tvshow.service.TVshowService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class ShowController {
 
@@ -34,7 +37,7 @@ public class ShowController {
         log.trace("play() is called");
         BoxValues prize = tvShowService.putValues();
         BoxGuess boxGuess = new BoxGuess(prize);
-        log.debug("Value: " + boxGuess.getPrizeText());
+        log.debug("Value: " + boxGuess);
         return new ModelAndView("ResultTemplate", "prize",boxGuess);
     }
 

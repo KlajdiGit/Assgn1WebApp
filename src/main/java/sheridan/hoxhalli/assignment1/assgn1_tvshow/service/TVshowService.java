@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import sheridan.hoxhalli.assignment1.assgn1_tvshow.model.BoxGuess;
 import sheridan.hoxhalli.assignment1.assgn1_tvshow.model.BoxValues;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import static sheridan.hoxhalli.assignment1.assgn1_tvshow.model.BoxValues.NOPRIZE;
@@ -14,14 +16,21 @@ public class TVshowService {
     private final Random random;
     //private static final int NUM_BOXES = 4;
 
+    private List <BoxGuess> guesses;
     public TVshowService(Random rand) {
         this.random = rand;
-
+        this.guesses = generatePrizes();
     }
 
 
+    public List<BoxGuess> getGuesses() {
+        return guesses;
+    }
+
     public TVshowService() {
         this(new Random());
+        this.guesses = new ArrayList<>();
+
     }
 
     public BoxGuess getBox(BoxValues val){
@@ -42,5 +51,13 @@ public class TVshowService {
             return BoxValues.MONEY;
 
         }
+    }
+
+    public List<BoxGuess> generatePrizes(){
+       List<BoxGuess> val = new ArrayList<>();
+        for (int i =0;i<4;i++){
+            val.add(new BoxGuess(putValues()));
+        }
+        return val;
     }
 }
