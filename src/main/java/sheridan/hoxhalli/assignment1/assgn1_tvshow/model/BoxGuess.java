@@ -11,9 +11,6 @@ public class BoxGuess {
     }
 
 
-
-
-
     public void setPrizeText(String prizeText) {
         this.prizeText = prizeText;
     }
@@ -23,14 +20,16 @@ public class BoxGuess {
     }
 
     private String prizeTextValue(){
-       switch(this.value){
+        switch(this.value){
 
-           case NOPRIZE:
-               return "No prize";
-           case SPORTCAR:
-               return "Sprots car";
-           case MONEY:
-               return "Money";
+            case NOPRIZE:
+                return "No prize";
+            case SPORTCAR:
+                return "Sprots car";
+            case MONEY:
+                return "100,000 Dollars";
+            case MANSION:
+                return "Mansion";
         }
         throw new AssertionError("should never be reached");
     }

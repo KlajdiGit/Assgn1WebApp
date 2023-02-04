@@ -36,9 +36,11 @@ public class ShowController {
               ){
         log.trace("play() is called");
         BoxValues prize = tvShowService.putValues();
-        BoxGuess boxGuess = new BoxGuess(prize);
-        log.debug("Value: " + boxGuess);
-        return new ModelAndView("ResultTemplate", "prize",boxGuess);
+        List <BoxGuess> boxGuesses = new ArrayList<>();
+        boxGuesses = tvShowService.generatePrizes();
+        TVshowService tvShowService2 = new TVshowService(boxGuesses);
+        log.debug("Value: " + prize.toString());
+        return new ModelAndView("ResultTemplate", "prize",tvShowService2);
     }
 
 }

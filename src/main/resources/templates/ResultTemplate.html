@@ -10,35 +10,26 @@
 </header>
 <main>
     <h2>Prize!!!</h2>
-    <p>
-        <label>Your prize is:</label>&nbsp;<span th:text="${prize.getPrizeText()}">Money</span>
+    <div>
+        Your prize is : <img src="../static/images/noprize.png" height="100" width="100" alt="No Prize"
+                             th:src="@{|images/${prize.getPrize().getValue()}.png|}" >
+
+    </div>
+
+
+    <p class="choice-container">
+        <img th:each="valueBox: ${prize.getGuesses()}"
+             th:src="@{|images/${valueBox.getValue()}.png|} " height="100" width="100"
+             src="../static/images/noprize.png" alt="prize">
+        <!--/*-->
+        <img src="../static/images/sportcar.png" alt="box 2">
+        <img src="../static/images/money.png" alt="box 3">
+        <img src="../static/images/noprize.png" alt="box 4">
+
+        <!--*/-->
     </p>
 
 
-  <!--  <p>
-        <img th:each="value: ${prize.getGuesses()}"
-             th:src="@{|images/${value.getValue()}.png}"
-             src="../static/images/noprize.png" alt="side 1">
-        &lt;!&ndash;/*&ndash;&gt;
-        <img src="../static/images/sportcar.png" alt="side 2">
-        <img src="../static/images/money.png" alt="side 3">
-        <img src="../static/images/noprize.png" alt="side 3">
-
-        &lt;!&ndash;*/&ndash;&gt;
-    </p>-->
-
-
-
-   <div class="choice-container">
-        <img src="../static/images/noprize.png" height="100" width="100" alt="No Prize"
-             th:src="@{|images/${prize.getValue()}.png|}" th:alt="${prize.value}">
-        <img src="../static/images/money.png" height="100" width="100"  alt="Money"
-             th:src="@{|images/${prize.getValue()}.png|}" th:alt="${prize.value}">
-        <img src="../static/images/noprize.png" height="100" width="100" alt="No Prize"
-             th:src="@{|images/${prize.getValue()}.png|}" th:alt="${prize.value}">
-        <img src="../static/images/sportcar.png" height="100" width="100"  alt="Sportscar"
-             th:src="@{|images/${prize.getValue()}.png|}" th:alt="${prize.value}">
-    </div>
     <p>
         <a href="PlayTemplate.html" th:href="@{playTemplate}">Play Again!</a>
     </p>
